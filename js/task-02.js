@@ -22,10 +22,20 @@ const ingredients = [
 
 const ingredientsEL = document.getElementById("ingredients");
 
-for (const ingredient of ingredients) {
+// for of варто використовувати з перериваням циклу
+// for (const ingredient of ingredients) {
+//   const itemEl = document.createElement("li");
+//   itemEl.textContent = ingredient;
+//   itemEl.classList.add("item");
+//   ingredientsEL.append(itemEl);
+// }
+// console.log(ingredientsEL);
+
+// forEach
+ingredients.forEach((ingredient) => {
   const itemEl = document.createElement("li");
   itemEl.textContent = ingredient;
   itemEl.classList.add("item");
   ingredientsEL.append(itemEl);
-}
+});
 console.log(ingredientsEL);

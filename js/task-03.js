@@ -32,15 +32,25 @@ listEl.style.flexWrap = "wrap";
 listEl.style.justifyContent = "center";
 listEl.style.gap = "10px";
 
-const markupEL = images
-  .map(
-    ({ url, alt }) =>
-      `<li class = "gallery-item">
-        <img class = "gallery-item-imag" src = "${url}" alt = "${alt}" width="360" height="300">
-      <li>`
-  )
-  .join("");
+// const markupEL = images
+//   .map(
+//     ({ url, alt }) =>
+//       `<li class = "gallery-item">
+//         <img class = "gallery-item-imag" src = "${url}" alt = "${alt}" width="360" height="300">
+//       <li>`
+//   )
+//   .join("");
+
+// listEl.insertAdjacentHTML("afterbegin", markupEL);
+
+//!=========== замість map i join можна використовувати reduce =================
+const markupEL = images.reduce(
+  (markup, image) =>
+    markup +
+    `<li class = "gallery-item">
+         <img class = "gallery-item-imag" src = "${image.url}" alt = "${Image.alt}" width="360" height="300">
+      <li>`,
+  ""
+);
 
 listEl.insertAdjacentHTML("afterbegin", markupEL);
-
-// замість map i join можна використовувати reduce
