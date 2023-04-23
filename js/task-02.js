@@ -22,6 +22,14 @@ const ingredients = [
 
 const ingredientsEL = document.getElementById("ingredients");
 
+const markup = ingredients
+  .map((ingredient) => `<li class="item">${ingredient}</li>`)
+  .join("");
+
+ingredientsEL.insertAdjacentHTML("beforeend", markup);
+
+console.log(ingredientsEL);
+
 // for of варто використовувати з перериваням циклу
 // for (const ingredient of ingredients) {
 //   const itemEl = document.createElement("li");
@@ -30,12 +38,3 @@ const ingredientsEL = document.getElementById("ingredients");
 //   ingredientsEL.append(itemEl);
 // }
 // console.log(ingredientsEL);
-
-// forEach
-ingredients.forEach((ingredient) => {
-  const itemEl = document.createElement("li");
-  itemEl.textContent = ingredient;
-  itemEl.classList.add("item");
-  ingredientsEL.append(itemEl);
-});
-console.log(ingredientsEL);

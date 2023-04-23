@@ -48,7 +48,7 @@ const markupEL = images.reduce(
   (markup, image) =>
     markup +
     `<li class = "gallery-item">
-         <img class = "gallery-item-imag" src = "${image.url}" alt = "${Image.alt}" width="360" height="300">
+         <img class = "gallery-item-imag" src = "${image.url}" alt = "${Image.alt}" width="250" height="250">
       <li>`,
   ""
 );

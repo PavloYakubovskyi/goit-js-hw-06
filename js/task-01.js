@@ -18,13 +18,28 @@
 // Category: Technologies
 // Elements: 5
 
-const categoriesItemsRef = document.querySelectorAll(".item");
-console.log(`Number of categories: ${categoriesItemsRef.length}\n\n`);
+// const categoriesItemsRef = document.querySelectorAll(".item");
+// console.log(`Number of categories: ${categoriesItemsRef.length}\n\n`);
 
-categoriesItemsRef.forEach((item) => {
-  const itemTitleRef = item.querySelector("h2");
-  const itemElements = item.querySelectorAll("li");
+// categoriesItemsRef.forEach((item) => {
+//   const itemTitleRef = item.querySelector("h2");
+//   const itemElements = item.querySelectorAll("li");
 
-  console.log(`Category: ${itemTitleRef.textContent}`);
-  console.log(`Elements: ${itemElements.length}\n\n`);
-});
+//   console.log(`Category: ${itemTitleRef.textContent}`);
+//   console.log(`Elements: ${itemElements.length}\n\n`);
+// });
+
+// друний спосіб завдяки властивостям по навігації по DOM які мають ієрархічне відношення
+
+const categoriesRef = document.querySelector("#categories");
+
+console.log(`Number of categories: ${categoriesRef.children.length}\n\n`);
+
+const itemRef = categoriesRef.querySelectorAll(".item");
+
+console.log(
+  itemRef.forEach((item) => {
+    console.log(`Category: ${item.firstElementChild.textContent}`);
+    console.log(`Elements: ${item.lastElementChild.children.length}\n\n`);
+  })
+);

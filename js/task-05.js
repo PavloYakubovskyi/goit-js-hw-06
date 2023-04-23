@@ -5,12 +5,16 @@
 // <h1>Hello, <span id="name-output">Anonymous</span>!</h1>
 
 const refs = {
-  input: document.getElementById("name-input"),
-  span: document.getElementById("name-output"),
+  inputEl: document.getElementById("name-input"),
+  nameEl: document.getElementById("name-output"),
 };
 
-refs.input.addEventListener("input", (e) => {
-  refs.span.textContent = e.currentTarget.value
-    ? e.currentTarget.value.trim()
-    : "Anonymous";
-});
+refs.inputEl.addEventListener("input", onInputChange);
+
+function onInputChange() {
+  refs.nameEl.textContent = refs.inputEl.value;
+
+  if (refs.inputEl.value === "") {
+    refs.nameEl.textContent = "Anonymous";
+  }
+}
