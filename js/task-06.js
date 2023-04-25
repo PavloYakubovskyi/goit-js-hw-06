@@ -27,13 +27,17 @@
 
 const inputRef = document.getElementById("validation-input");
 
-inputRef.addEventListener("blur", (e) => {
-  e.currentTarget.value.length ===
-  Number(e.currentTarget.getAttribute("data-length"))
-    ? e.currentTarget.classList.add("valid")
-    : e.currentTarget.classList.add("invalid");
-});
+inputRef.addEventListener("blur", onInputBlur);
 
-inputRef.addEventListener("focus", (e) => {
-  e.currentTarget.removeAttribute("class");
-});
+function onInputBlur(e) {
+  if (
+    e.currentTarget.value.length ===
+    Number(e.currentTarget.getAttribute("data-length"))
+  ) {
+    inputRef.classList.add("valid");
+    inputRef.classList.remove("invalid");
+  } else {
+    inputRef.classList.remove("valid");
+    inputRef.classList.add("invalid");
+  }
+}
