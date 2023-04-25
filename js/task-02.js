@@ -1,16 +1,3 @@
-// Напиши скрипт, який для кожного елемента масиву ingredients:
-
-// Створить окремий елемент <li>. Обов'язково використовуй метод document.createElement().
-// Додасть назву інгредієнта як його текстовий вміст.
-// Додасть елементу клас item.
-// Після чого, вставить усі <li> за одну операцію у список ul#ingredients.
-
-// HTML містить порожній список ul#ingredients.
-
-// <ul id="ingredients"></ul>
-
-// JavaScript містить масив рядків.
-
 const ingredients = [
   "Potatoes",
   "Mushrooms",
@@ -22,19 +9,12 @@ const ingredients = [
 
 const ingredientsEL = document.getElementById("ingredients");
 
-const markup = ingredients
-  .map((ingredient) => `<li class="item">${ingredient}</li>`)
-  .join("");
+const makeIngr = (ingredient) => {
+  let liEl = document.createElement("li");
+  liEl.classList.add("item");
+  liEl.textContent = ingredient;
+  return liEl;
+};
 
-ingredientsEL.insertAdjacentHTML("beforeend", markup);
-
-console.log(ingredientsEL);
-
-// for of варто використовувати з перериваням циклу
-// for (const ingredient of ingredients) {
-//   const itemEl = document.createElement("li");
-//   itemEl.textContent = ingredient;
-//   itemEl.classList.add("item");
-//   ingredientsEL.append(itemEl);
-// }
-// console.log(ingredientsEL);
+const elements = ingredients.map(makeIngr);
+ingredientsEL.append(...elements);
